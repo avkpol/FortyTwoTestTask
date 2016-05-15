@@ -106,19 +106,16 @@ MEDIA_URL = '/uploads/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
 
-# Additional locations of static files
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, "static"),
+    #os.path.join(BASE_DIR, "static_in_env"),
+    #'/var/www/static/',
 )
 
 
@@ -130,11 +127,22 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
 )
+#
+# # Turn off south during test
+# SOUTH_TESTS_MIGRATE = False
+#
+# # FIXTURE_DIRS = (
+# #     os.path.join(BASE_DIR, 'mydata.json'),
+# # )
 
-# Turn off south during test
-SOUTH_TESTS_MIGRATE = False
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# FIXTURE_DIRS = (
-#     os.path.join(BASE_DIR, 'mydata.json'),
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
+# Additional locations of static files
+# STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+#     os.path.join(BASE_DIR, 'static'),
 # )
-
