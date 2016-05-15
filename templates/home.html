@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ form.as_p }}
+<div>
+
+<h3>Last Requests</h3>
+<div class="table">
+
+ <td>
+{% for req in last_ten %}
+{{ req }}<br>
+{% endfor %}
+
+ </td>
+</div>
+</div>
+
+{% endblock content %}
