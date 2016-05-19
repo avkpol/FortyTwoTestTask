@@ -8,3 +8,9 @@ class User_data_form(forms.ModelForm):
         model = User_data
         fields = '__all__'
 
+
+
+
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()

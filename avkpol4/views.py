@@ -8,7 +8,7 @@ import subprocess
 from subprocess import Popen
 import json
 
-from forms import User_data_form
+from forms import User_data_form, UploadFileForm
 from models import User_data
 from custom_middleware import last_10
 

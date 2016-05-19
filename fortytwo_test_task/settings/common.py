@@ -42,10 +42,45 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 
     'crispy_forms',
     'avkpol4',
 )
+
+SITE_ID = 1
+LOGIN_URL ='/accounts/login/'
+LOGIN_REDIRECT_URL = '/home'
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email" #(="username" | "email" | "username_email")
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True # (=False)
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL =  LOGIN_URL
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = LOGIN_REDIRECT_URL
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 10
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = None #choices are: "mandatory", "optional", or None
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "Subject is: "
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http" #if secure use https
+ACCOUNT_LOGOUT_ON_GET = False #log user out right away.
+ACCOUNT_LOGOUT_REDIRECT_URL = LOGIN_URL
+ACCOUNT_SIGNUP_FORM_CLASS =None # add a custom sign up form
+ACCOUNT_SIGNUP_PASSWORD_VERIFICATION =True # use False if you don't want double password fields
+ACCOUNT_UNIQUE_EMAIL= True #enforces emails are unique to all accounts
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "username" # If you're using a Custom Model, maybe it's "email"
+ACCOUNT_USER_MODEL_EMAIL_FIELD ="email"
+#ACCOUNT_USER_DISPLAY (=a callable returning user.username)
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+ACCOUNT_USERNAME_BLACKLIST =['some_username_youdon\'t_want']
+ACCOUNT_USERNAME_REQUIRED =True #do you want them to have a user name?
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE =False #don't show the password
+ACCOUNT_PASSWORD_MIN_LENGTH =6 #min length of password
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION =True #login the user after confirming email, if required.
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,6 +94,23 @@ MIDDLEWARE_CLASSES = (
 
     # custom middleware to collect http requests
     'avkpol4.custom_middleware.SaveRequestDb',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    # Required by `allauth` template tags
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+
+)
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 ROOT_URLCONF = 'fortytwo_test_task.urls'
