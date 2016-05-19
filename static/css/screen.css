@@ -1,10 +1,37 @@
 .jumbotron {
     background-color: #8A6D3B;
-    padding:150px;
-
+    padding:100px;
 }
-
 .container {
     padding-right: 0px;
     padding-left: 150px;
+}
+.navbar-inverse .navbar-nav >li>a {
+    color: #8A6D3B;
+}
+#badge {
+     padding-left: 550px;
+}
+.navbar-brand {
+    font-size: 12px;
+}
+.btn {
+    margin-top: 40px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #2D2B27;
+    width: 100px;
+}
+.btn-link {
+    background-color:transparent;
+    padding-left: 45px;
+}
+.button, input, optgroup, select, textarea {
+    color: #5d0d0b;
+    width: 350px;
+}
+.input, textarea, keygen, select, button, meter, progress {
+    width: 350px;
+    height:100px;
 }

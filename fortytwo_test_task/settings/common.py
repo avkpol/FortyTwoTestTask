@@ -14,6 +14,7 @@ import sys
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'settings.common'
 
 # App/Library Paths
 sys.path.append(os.path.join(BASE_DIR, 'apps'))
@@ -42,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.hello',
+    'crispy_forms',
     'avkpol4',
 )
 
