@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 
@@ -9,13 +9,6 @@
     {{ form | crispy }}
 </form>
 
-<h3>Last Requests</h3>
-
-
-
-{% for req in last_ten %}
-{{ req }}<br>
-{% endfor %}
 
 
 </div>

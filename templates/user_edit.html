@@ -1,23 +1,164 @@
+{#{% extends "base.html" %}#}
+{#{% load crispy_forms_tags %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="page-header">#}
+{#        <h1>Edit personal data</h1>#}
+{#    </div>#}
+{#    <div class="msg"></div>#}
+{##}
+{#    <form class="form-vertical" id="img_upload_form" action="{% url "avkpol4:save_image" %}" enctype="multipart/form-data" method="post">#}
+{#    {% csrf_token %}#}
+{#     <fieldset>#}
+{#    <div class="row"#}
+{#    <div class="col-md-6">#}
+{#  <div class="col-md-12">#}
+{#                <img id="photo-preview" class="pull-right" src="{% if userdata.photo == '' %}{{ userdata.photo.url }}{% else %}{{ MEDIA_URL }}{{ userdata.photo.url }}{% endif %}" alt="Photo Preview"/>#}
+{#            </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label" for="id_first_name">First Name</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.name }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label" for="id_last_name">Last Name</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.last_name }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label" for="id_date_of_birth">Birthday</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.date_of_birth }}#}
+{#            </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label pull-right" for="id_email">Email</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.email }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label pull-right" for="id_skype">Skype</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.skype }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label pull-right" for="id_jabber">Jabber</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.jabber }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="col-md-4 control-label pull-right" for="id_bio">Biograpthy</label>#}
+{#            <div class="col-md-8">#}
+{#                {{ form.bio }}#}
+{#            </div>#}
+{##}
+{#    </div><!-- .col-md-6 -->#}
+{##}
+{#         <div class="form-group">#}
+{#            <label class="col-md-4 control-label" for="id_photo">Photo</label>#}
+{##}
+{#              <input id="id_photo" name="id_photo" class="input-file" type="file">#}
+{#	            {{ form.photo }}#}
+{##}
+{#          <div>#}
+{#        	{% if userdata.photo.url %}#}
+{#			<li><span>Photo: <br/></span><img src="{{ userdata.photo.url }}" alt="{{ userdata.name }}'s photo"/></li>#}
+{#		{% else %}#}
+{#			<li><span>Photo: </span>No photo, so far</li>#}
+{#		{% endif %}#}
+{#                <img id="photo-preview" class="pull-right" src="{% if form.photo.value == ''%}#}
+{#                {{ form.photo.value }}{% else %}{{ userdata.photo.url }}{% endif %}" alt="Photo Preview"/>#}
+{#            </div>#}
+{#    </div><!-- .col-md-6 -->#}
+{##}
+{#    <div class="col-md-6">#}
+{#        <a href="{% url "avkpol4:user_edit" %}" type="submit" class="btn btn-success pull-right">Save Changes</a>#}
+{#    </div>#}
+{#    <div class="col-md-6">#}
+{#        <a href="/" class="btn btn-default pull-left">Back Home</a>#}
+{#    </div>#}
+{##}
+{#    </div>#}
+{#    </div>#}
+{#    </fieldset>#}
+{#    </form>#}
+{##}
+{#    <div id="loader" style="display:none"></div>#}
+{#{% endblock %}#}
+{##}
+{#{% block extra_body %}#}
+{#	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">#}
+{#	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>#}
+{#    <script type="text/javascript" src="{% static 'js/bio_edit.js' %}"></script>#}
+{#{% endblock %}#}
+
+{##}
+{#{% block content %}#}
+{#<div class="row">#}
+{#    <div class="col-md-6">#}
+{#            <h3>Editable form</h3>#}
+{#       <form method="post" >#}
+{#        {% crispy form %}{% csrf_token %}#}
+{#        </form>#}
+{##}
+{##}
+{#        <form method="post" action="{% url "avkpol4:save_image" %}"  id="img_upload_form" enctype="multipart/form-data">#}
+{##}
+{#            {% crispy form %}{% csrf_token %}#}
+{#        <input class="upl-photo" type="file" name="myphoto" />#}
+{#        <input type="submit" id="img_submit" name="submit" value="Upload" />#}
+{#         <button type="submit" class="btn btn-success pull-right">Save Changes</button>#}
+{##}
+{##}
+{#               <div class="image" id="user-photo">#}
+{#             {{ image_data }}{{ img }}#}
+{#              <img src="http://statfaking1.firstpost.in/wp-content/uploads/2015/12/kim-jaya.jpg" />#}
+{#                  <img src="{{ userdata.photo.url }}"/>#}
+{#                  <img src="data:image/jpg;base64,{{ img | safe}}">#}
+{#                               <img src="{{ img }}">#}
+{#                         <img src="{{ image }}">#}
+{#                         <img src="{{ usr.photo }}">#}
+{##}
+{#                <img id="photo-preview" class="pull-right" src="{{ MEDIA_URL }}{{ form.photo.value }}" alt="Photo Preview"/>#}
+{#                 </div>#}
+{#                 <div>#}
+{#                        <label class="col-md-4 control-label" for="id_photo">Photo</label>#}
+{#              <img src="{{ userdata.get_absolute_url }}"/>#}
+{#                 <div class="col-md-8">#}
+{#              <input id="id_photo" name="id_photo" class="input-file" type="file">#}
+{#	            {{ userdata.photo.url }}#}
+{##}
+{#        </form>#}
+{#            </div>#}
+{#         </div>#}
+{##}
+{##}
+{#{% endblock content %}#}
+
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block title %}Editable form{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-6">
-            <h3>Editable form</h3>
-        <form method="post" enctype="multipart/form-data">
-        {% crispy form %}{% csrf_token %}
-        </form>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">User</h3>
+      </div>
+      <div class="panel-body">
+        {% crispy form %}
+
+      </div>
     </div>
-        <div class="col-md-6">
-
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-        <input type="file" name="myphoto" />
-        <input type="submit" name="submit" value="Upload" />
-        </form>
-     </div>
-</div>
-
-{% endblock content %}
+{% endblock %}

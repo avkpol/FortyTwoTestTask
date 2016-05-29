@@ -1,7 +1,9 @@
+
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from avkpol4 import views
+
+
 
 
 admin.autodiscover()
@@ -9,13 +11,11 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
 
+    url(r'^', include('avkpol4.urls', namespace='avkpol4')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^home/', 'avkpol4.views.user_data_view', name='home'),
-    url(r'^hide/', 'avkpol4.views.get_from_request', name='hide'),
-    url(r'^entry/(?P<pk>\d+)/edit/$',
-		views.UserUpdateView.as_view(),
-		name='user_edit'),
+
+
 
 )

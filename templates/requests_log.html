@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block request_log %}
+    {{ requests }}
+{% endblock %}
+
+{% block content %}
+
+<div>
+
+<h3>Last Requests</h3>
+
+
+
+{% for req in last_ten %}
+{{ req }}<br>
+{% endfor %}
+
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+#! /bin/bash
+
+echo 'creating list of all models and entryes in it'
+
+FILENAME=$(date +"%Y-%m-%d")
+
+
+ if  python manage.py listmodel;
+      then
+               echo 'list successfully created!'
+            else
+                2>> $FILENAME.dat
+               echo "please create at least one model first!"
+            fi
+

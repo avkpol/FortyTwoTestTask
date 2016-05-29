@@ -1,5 +1,5 @@
 from datetime import datetime
-from . request_model import RequestLog
+from models import RequestLog
 
 
 class SaveRequestDb():
