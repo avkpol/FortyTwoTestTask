@@ -18,8 +18,29 @@ $(document).ready(function(){
             reader.readAsDataURL(this.files[0]);
         }
     });
+    //disable button after submit (need to be corrected)
+
+$('#s1-btn').click(function(e) {
+        e.preventDefault();
+        $(this).prop('disabled', true)
+        $.post(
+            "/run-key-gen-process/",
+            onAjaxSuccess
+        );
+
+        function onAjaxSuccess(data) {
+            if (data == "Key was succesfully generated an tested!") {
+                $("#jmessage").addClass("alert alert-success")
+                    .text(data).fadeOut(6000);
+            }
+            $('#s1-btn').click(function() {
 
 
+                $("#jmessage").removeClass("alert alert-success").addClass("alert alert-info")
+                    .text("Button is disabled since you already generated and tested the key");
+            });
+        };
+    });
 
 //   //code  to solve problem with 403 error
 //    // (http://stackoverflow.com/questions/5100539/django-csrf-check-failing-with-an-ajax-post-request?lq=1)
@@ -90,12 +111,21 @@ $(document).ready(function(){
         var options = {
             target:     '#photo-preview', // div to update
             url:        '/save_image/',
-
+            beforeSubmit: function() {
+                $('#submit-id-save_changes').prop("disabled", true);
+                $('#loader').show();
+            },
             success:    function(data) {
 
                 var new_url = $('#id_photo')[0].value.replace("C:\\fakepath\\", "photo/");
                 $(".controls a").attr("href", "/static/media/" + new_url);
                 $(".controls a").html( new_url);
+                 $('#submit-id-save').prop("disabled", false);
+
+            $('#loader').hide();
+            $('.success-message').html('<p class="alert alert-success" role="alert"> Changes have been saved!</p>')
+                .fadeOut(6000);
+                //alert("data saved!")
 
             }
         };
@@ -116,7 +146,7 @@ $(document).ready(function(){
 //            $('#submit-id-save').prop("disabled", false);
 //            $('html,body').scrollTop(0);
 //            $('#loader').hide();
-//            //$('.msg').html('<p class="alert alert-success" role="alert"><strong>Success!</strong> Changes have been saved!</p>');
+//            $('.msg').html('<p class="alert alert-success" role="alert"><strong>Success!</strong> Changes have been saved!</p>');
 //        }
 //    };
 //

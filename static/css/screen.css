@@ -35,3 +35,48 @@
     width: 350px;
     height:100px;
 }
+
+.form-actions {
+   padding-top:450px;
+}
+#photo-preview {
+    padding-top:80px;
+    /*padding-right:50px;*/
+   margin-right: 150px;
+}
+
+#submit-id-save_changes{
+    margin-left: 20px;
+    width: 150px;
+}
+#button-id-cancel{
+    width: 150px;;
+}
+
+.panel-primary>.panel-heading{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+
+}
+#title {
+    color:#DBDBD0;
+    font-size:20pt;
+}
+
+#loader { position: fixed; right: 10%; top: 0; z-index: 999; width:50%; height:50%; overflow: visible;
+       background: transparent url('/static/media/loader.gif') no-repeat scroll center;
+}
+.panel-primary {
+    border-color: #D1C38D;
+    background-color: #8A6D3B;
+    border-radius: 8px;
+}
+
+.button, input, select, textarea {
+    border-radius: 4px;
+}
+
+

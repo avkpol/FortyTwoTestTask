@@ -1,17 +1,11 @@
-{% extends "base.html" %}
+{% extends "base.html" %}.html' %}
 {% load crispy_forms_tags %}
-
 
 {% block content %}
 
 <div>
 <form id="form" action="">{% csrf_token %}
-    {{ form | crispy }}
+    {% crispy form %}
 </form>
-
-
-
 </div>
-
-
 {% endblock content %}
