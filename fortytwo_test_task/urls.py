@@ -12,7 +12,7 @@ urlpatterns = patterns(
     '',
 
     url(r'^', include('avkpol4.urls', namespace='avkpol4')),
-    url(r'^accounts/', include('allauth.urls')),
+    url(r'^account/', include('allauth.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
 

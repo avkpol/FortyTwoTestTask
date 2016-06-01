@@ -3,9 +3,11 @@ from django import forms
 
 from models import UserData
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit,Button, Div, HTML
+from crispy_forms.layout import Layout, Submit, Div, HTML
 
-
+"""
+parent class for both UserDataForm and InitialForm
+"""
 class FormMixin(forms.ModelForm):
     class Meta:
         model = UserData
@@ -27,10 +29,13 @@ class FormMixin(forms.ModelForm):
             FormActions(Submit('save_changes', 'Save', css_class='btn btn-success'),)
             )
         )
-
+"""
+editable form
+"""
 class UserDataForm(FormMixin):
     def __init__(self, *args, **kwargs):
         super(UserDataForm, self).__init__(*args, **kwargs)
+
 
 class InitialForm(FormMixin):
     class Meta:

@@ -78,5 +78,48 @@
 .button, input, select, textarea {
     border-radius: 4px;
 }
+#badge {
+    padding-left:15px;
+    margin-left:10px;
+}
+.ul.nav navbar-nav navbar-right{
+    float-offset: -150px;
+}
 
+.jumbotron .h1, .jumbotron h1 {
+    font-size: 33px;
+}
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 200;
+}
+.jumbotron .container {
+    max-width: 100%;
+    max-height: 100%
+}
 
+.input, keygen, select, button, meter, progress {
+    width: 150px;
+    height: 40px;
+}
+a {
+    color:#DBEA93;
+}
+.dropdown-toggle {
+    margin-left:550px;
+
+}
+.dropdown-menu {
+   margin-left:550px;
+}
+.btn-info {
+    color: #fff;
+    background-color: #333;
+    border-color: #46b8da;
+}
+.help-block {
+
+    color: #e9e5c9;
+    font-weight: 200;
+}

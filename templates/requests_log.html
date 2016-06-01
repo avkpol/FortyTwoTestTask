@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load customtag %}
 
 {% block request_log %}
     {{ requests }}
@@ -9,26 +10,15 @@
 
 <div>
 
-<h3>Last Requests</h3>
+    <h4>Last  10 Requests from <a href="{% get_admin_url req_obj %}"> {{ requests }}</a></h4>
+    <table class='table'>
+        <p>{{ priority }}</p>
+        {% for req in last_ten %}
+         <tr><td>{{ forloop.counter }} . {{ req }}</td></tr>
 
-<table class='table'>
-       <thead>
-       <tr>
-       <th>#</th>
-      <th>Requests</th>
-      </tr>
-      </thead>
-
-     {% for req in last_ten %}
-             <tr><td>{{ forloop.counter }}  {{ req }}</td></tr>
-
-
-       {% endfor %}
-  </table>
-
-
+        {% endfor %}
+    </table>
 
 </div>
-
 
 {% endblock content %}
