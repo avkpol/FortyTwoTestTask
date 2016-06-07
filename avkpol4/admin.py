@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import UserData, RequestLog, ModelLog
+from .models import UserData, RequestLog, ModelLog
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ('name', 'last_name', 'birth_date', 'email', 'jabber', 'skype',)

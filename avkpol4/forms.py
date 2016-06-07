@@ -9,9 +9,11 @@ from crispy_forms.layout import Layout, Submit, Div, HTML
 parent class for both UserDataForm and InitialForm
 """
 class FormMixin(forms.ModelForm):
+
+
     class Meta:
         model = UserData
-        fields = ['name', 'last_name', 'birth_date', 'bio', 'email', 'jabber','skype', 'photo']
+        fields = ['name', 'last_name', 'birth_date', 'bio', 'email', 'jabber', 'skype', 'photo']
 
     def __init__(self, *args, **kwargs):
         super(FormMixin, self).__init__(*args, **kwargs)
@@ -23,9 +25,9 @@ class FormMixin(forms.ModelForm):
         self.helper.form_tag = True
         self.helper.layout = Layout(
             Div(
-                Div('name', 'last_name', 'birth_date','email', 'jabber','skype','bio', css_class='col-md-6'),
+                Div('name', 'last_name', 'birth_date', 'email', 'jabber', 'skype', 'bio', css_class='col-md-6'),
                 Div('photo', css_class='col-md-6'),
-                HTML('<img src="{{ url_photo }}" id="photo-preview" class="pull-right form-inline">'),
+                HTML('<img src="{% if {{ url_photo }} " id="photo-preview" class="pull-right form-inline">'),
             FormActions(Submit('save_changes', 'Save', css_class='btn btn-success'),)
             )
         )

@@ -2,7 +2,7 @@ from datetime import datetime
 from models import RequestLog
 
 
-class SaveRequestDb():
+class SaveRequestDb:
 
     def process_request(self, request):
 

@@ -8,9 +8,6 @@ class Command(BaseCommand):
 
     help = 'Displays all apps models list '
 
-    def add_arguments(self, parser):
-        parser.add_argument('poll_id', nargs='+', type=int)
-
     def handle(self, *args, **options):
         app_models = apps.get_app_config('avkpol4').get_models(include_auto_created=True)
 

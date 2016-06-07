@@ -22,6 +22,7 @@ class UserData(models.Model):
 
 
     def save(self, *args, **kwargs):
+
         if self.photo:
             image = Img.open(StringIO.StringIO(self.photo.read()))
             image.thumbnail((200, 200), Img.ANTIALIAS)
@@ -81,7 +82,9 @@ signals
 '''
 
 models = ['UserData', 'RequestLog']
-@receiver(post_save, sender= None)
+
+
+@receiver(post_save, sender=None)
 def model_edit_save(sender, created, **kwargs):
     if sender.__name__ in models:
         if created:
@@ -91,7 +94,7 @@ def model_edit_save(sender, created, **kwargs):
             ModelLog.objects.create(model=sender.__name__, action='update')
 
 
-@receiver(post_delete, sender= None)
+@receiver(post_delete, sender=None)
 def model_delete(sender, **kwargs):
     if sender.__name__ in models:
-         ModelLog.objects.create(model=sender.__name__, action='delete')
+        ModelLog.objects.create(model=sender.__name__, action='delete')

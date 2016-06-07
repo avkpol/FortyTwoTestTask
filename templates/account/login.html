@@ -11,7 +11,7 @@
 
 <div class = ' col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3'>
 <h3>{% block head_title %}{% trans "Sign In" %}{% endblock %}</h3>
-<h1>{% trans "login" %}</h1>
+{#<h1>{% trans "login" %}</h1>#}
 
 {% get_providers as socialaccount_providers %}
 
@@ -23,7 +23,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <div class="socialaccount_ballot">
 
   <ul class="socialaccount_providers">
-    <!-- connecting login with scial account -->
+    <!-- connecting login with social account -->
     <!-- {% include "socialaccount/snippets/provider_list.html" with process="login" %} -->
   </ul>
 
