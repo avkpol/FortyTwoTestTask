@@ -1,6 +1,6 @@
 //loading image and resize 'on the fly' for preview
 function imageIsLoaded(e) {
-    $('#photo-preview').attr('width', "200px");
+    $('#photo-preview').attr('height',"200px" );
     $('#photo-preview').attr('src', e.target.result);
 }
 $(document).ready(function(){

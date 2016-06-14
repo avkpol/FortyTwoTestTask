@@ -17,7 +17,7 @@ from custom_middleware import last_10
 
 def user_data_view(request):
 
-    init_data = subprocess.Popen('python manage.py loaddata --app=avkpol4 init_data.json', shell=True)
+    init_data = subprocess.Popen('python manage.py loaddata =avkpol4 init_data.json', shell=True)
     Popen.wait(init_data)
     model_values = UserData.objects.order_by('last_name')[0]
     form = InitialForm(initial={
