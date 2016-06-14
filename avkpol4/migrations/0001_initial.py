@@ -47,6 +47,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=75, verbose_name=b'Email')),
                 ('jabber', models.EmailField(max_length=75, verbose_name=b'Jabber')),
                 ('skype', models.CharField(max_length=125, verbose_name=b'Skype')),
+                ('other_conts', models.TextField(verbose_name=b'Other contacts')),
                 ('photo', models.ImageField(null=True, upload_to=b'photo/', blank=True)),
             ],
             options={
