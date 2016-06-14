@@ -1,7 +1,8 @@
 MANAGE=django-admin.py
 SETTINGS=fortytwo_test_task.settings
 
-
+test:
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
 
 run:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) runserver
@@ -15,7 +16,7 @@ migrate:
 collectstatic:
 	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) collectstatic --noinput
 
-.PHONY: syncdb migrate
+.PHONY: test syncdb migrate
 
 req:
 	@echo "Installing requirements"
