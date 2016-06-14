@@ -51,9 +51,10 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
 
-    'south',
+
     'crispy_forms',
     'avkpol4',
+    'south',
 )
 
 SITE_ID = 1
