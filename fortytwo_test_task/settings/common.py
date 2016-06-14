@@ -186,21 +186,10 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 #
-# # Turn off south during test
-# SOUTH_TESTS_MIGRATE = False
+# Turn off south during test
+SOUTH_TESTS_MIGRATE = False
 #
 # # FIXTURE_DIRS = (
 # #     os.path.join(BASE_DIR, 'mydata.json'),
 # # )
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-# Additional locations of static files
-# STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-#     os.path.join(BASE_DIR, 'static'),
-# )
