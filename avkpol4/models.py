@@ -15,6 +15,7 @@ class UserData(models.Model):
     email = models.EmailField(verbose_name="Email")
     jabber = models.EmailField(verbose_name="Jabber")
     skype = models.CharField(max_length=125, verbose_name="Skype")
+    other_conts = models.TextField(verbose_name="Other contacts")
     photo = models.ImageField(upload_to = 'photo/', blank=True, null=True)
 
     class Meta:

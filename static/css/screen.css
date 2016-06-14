@@ -3,6 +3,8 @@
     padding:100px;
 }
 .container {
+    display: flex;
+    flex-wrap: wrap;
     padding-right: 0px;
     padding-left: 150px;
 }
@@ -122,4 +124,14 @@ a {
 
     color: #e9e5c9;
     font-weight: 200;
+}
+
+#photo-preview {
+    padding-top: 30px;
+    margin-right: 150px;
+}
+
+#submit-id-save_changes {
+    margin-right: 130px;
+    width: 150px;
 }
